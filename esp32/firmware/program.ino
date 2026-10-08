@@ -32,7 +32,18 @@ void setup() {
     Serial.println("[BOOT] LoRa=FAIL");
     while (true) delay(1000);
   }
-  Serial.println("[BOOT] LoRa=OK sf=7 bw=125000 txp=17");
+  Serial.print("[BOOT] LoRa=OK sf=");
+  Serial.print(LORA_SPREADING_FACTOR);
+  Serial.print(" bw=");
+  Serial.print((long)LORA_BANDWIDTH);
+  Serial.print(" txp=");
+  Serial.print(LORA_TX_POWER);
+  Serial.print(" cr=4/");
+  Serial.print(LORA_CODING_RATE);
+  Serial.print(" pre=");
+  Serial.print(LORA_PREAMBLE_LENGTH);
+  Serial.print(" sw=0x");
+  Serial.println(LORA_SYNC_WORD, HEX);
 }
 
 void loop() {

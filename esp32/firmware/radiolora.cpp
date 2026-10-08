@@ -121,13 +121,18 @@ void logRx(const ParsedPacket* p, uint16_t msgId, const char* note) {
 // --- Capa LoRa ---
 
 // loraBeginSafe: configura pines del SX1278 y arranca el radio.
+//   Aplica todos los parámetros RF definidos en config.h.
 //   true si LoRa.begin tuvo éxito, false si falla la inicialización.
 bool loraBeginSafe() {
   LoRa.setPins(LORA_SS, LORA_RST, LORA_DIO0);
   if (!LoRa.begin(LORA_FREQ)) return false;
-  LoRa.setSpreadingFactor(7);
-  LoRa.setSignalBandwidth(125E3);
   LoRa.setTxPower(LORA_TX_POWER);
+  LoRa.setSpreadingFactor(LORA_SPREADING_FACTOR);
+  LoRa.setSignalBandwidth(LORA_BANDWIDTH);
+  LoRa.setCodingRate4(LORA_CODING_RATE);
+  LoRa.setPreambleLength(LORA_PREAMBLE_LENGTH);
+  LoRa.setSyncWord(LORA_SYNC_WORD);
+  if (LORA_LNA_GAIN > 0) LoRa.setGain(LORA_LNA_GAIN);
   return true;
 }
 
