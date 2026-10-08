@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Cantimplora.Models"
+             xmlns:views="clr-namespace:Cantimplora.Views"
+             x:Class="Cantimplora.Views.Esp32DeviceListView"
+             x:Name="Root">
+    <!-- estado vacío o lista de emparejados -->
+    <Grid RowDefinitions="*">
+        <!-- estado vacío y lista comparten la misma fila: se alternan por HasNoDevices / HasDevices -->
+        <Label Grid.Row="0" Text="Refresca para buscar dispositivos" IsVisible="{Binding HasNoDevices, Source={x:Reference Root}}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14" TextColor="Gray" />
+        <CollectionView Grid.Row="0" ItemsSource="{Binding Devices, Source={x:Reference Root}}" IsVisible="{Binding HasDevices, Source={x:Reference Root}}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:BluetoothDevice">
+                    <views:BtDeviceItemView BindingContext="{Binding}" ConnectCommand="{Binding ConnectCommand, Source={x:Reference Root}}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentView>

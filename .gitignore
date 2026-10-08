@@ -1,0 +1,101 @@
+# --- .NET / MAUI / Visual Studio ---
+bin/
+obj/
+out/
+*.user
+*.suo
+*.userprefs
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Tt]est[Rr]esult*/
+*.VisualState.xml
+TestResults/
+artifacts/
+publish/
+
+# .NET MAUI / Android specifics
+*.apk
+*.aab
+*.aar
+*.dll
+*.pdb
+*.exe
+*.dylib
+*.so
+*.dll.mdb
+*.pdb.mdb
+Resources/Generated/
+Generated/
+MauiControls.sln
+local.properties
+*.keystore
+!android/cantimplora-release.keystore
+
+# --- Arduino IDE 2.x ---
+# Cache de IndexedDB del IDE. Hay que borrarla manualmente si el sketch
+# no se reindexa (ver esp32/CHANGELOG v0.6.6).
+arduino-ide-cache/
+arduino_cache_*/
+
+# --- PlatformIO ---
+.pio/
+.pioenvs/
+.piolibdeps/
+.pio_core/
+
+# --- Sistemas operativos ---
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_view.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+.fuse_hidden*
+.Trash-*
+
+# --- Logs y temporales ---
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+*.rej
+*.patch
+
+# --- Entornos ---
+.env
+.env.local
+.env.*.local
+
+# --- Submódulos y vendor ---
+node_modules/
+vendor/

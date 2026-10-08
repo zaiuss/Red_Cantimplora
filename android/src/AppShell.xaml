@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Cantimplora.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Cantimplora"
+    xmlns:pages="clr-namespace:Cantimplora.Pages"
+    Title="Cantimplora">
+
+    <ShellContent
+        Title="BT Connect"
+        ContentTemplate="{DataTemplate pages:Esp32Page}"
+        Route="esp32" />
+
+    <ShellContent
+        Title="ESP32 Config"
+        ContentTemplate="{DataTemplate pages:Esp32ConfigPage}"
+        Route="esp32Config" />
+
+</Shell>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1280">
+  <title>Cantimplora vectorial</title>
+  <desc>Una sola cantimplora verde de estilo aventurero retro, con sombreado geométrico y sin cuerda.</desc>
+
+  <g transform="translate(640 640) scale(0.83) translate(-400 -520)">
+
+  <!-- ASA -->
+  <g stroke="#17130f" stroke-width="16" stroke-linejoin="round">
+    <path d="M300 285
+             C280 245 286 183 320 145
+             C354 108 416 95 475 112
+             C535 129 571 171 568 225
+             C566 268 544 299 511 320
+             L471 281
+             C491 264 502 242 501 219
+             C500 194 480 176 449 168
+             C416 159 382 164 363 184
+             C343 205 342 238 356 263
+             Z"
+          fill="#252726"/>
+
+    <!-- facetas del asa -->
+    <path d="M320 145 L354 108 L386 115 L363 184 L330 204 Z"
+          fill="#414443" stroke-width="7"/>
+    <path d="M386 115 L475 112 L449 168 L383 164 Z"
+          fill="#181a19" stroke-width="7"/>
+    <path d="M475 112 L535 129 L568 174 L501 219 L493 175 Z"
+          fill="#353837" stroke-width="7"/>
+    <path d="M535 129 L568 174 L566 225 L511 320 L491 287 L501 219 L544 180 Z"
+          fill="#171918" stroke-width="7"/>
+  </g>
+
+  <!-- CUELLO Y TAPÓN -->
+  <g stroke="#17130f" stroke-width="15" stroke-linejoin="round">
+    <path d="M280 295 L493 295 L520 365 L259 365 Z"
+          fill="#52682b"/>
+    <path d="M290 294 L485 294 L468 337 L305 337 Z"
+          fill="#6f8535" stroke-width="8"/>
+
+    <!-- tapón -->
+    <path d="M316 244 L466 244 L488 309 L296 309 Z"
+          fill="#292c2b"/>
+    <path d="M337 238 L361 238 L365 304 L341 304 Z
+             M381 237 L405 237 L408 304 L384 304 Z
+             M425 239 L449 240 L453 304 L429 304 Z"
+          fill="#565957" stroke="none"/>
+  </g>
+
+  <!-- CUERPO -->
+  <g stroke="#17130f" stroke-width="17" stroke-linejoin="round">
+    <path d="M260 347
+             L520 347
+             L575 426
+             L580 715
+             L535 864
+             L405 938
+             L275 875
+             L220 738
+             L225 454
+             Z"
+          fill="#52682b"/>
+
+    <!-- sombra lateral derecha -->
+    <path d="M500 366 L520 347 L575 426 L580 715
+             L535 864 L405 938 L390 884
+             L463 820 L475 640 L458 480 Z"
+          fill="#303c1d" stroke-width="6"/>
+
+    <!-- sombra inferior izquierda -->
+    <path d="M225 454 L277 488 L269 725 L315 841
+             L275 875 L220 738 Z"
+          fill="#394821" stroke-width="6"/>
+
+    <!-- plano principal -->
+    <path d="M277 385 L465 378 L493 462
+             L475 640 L463 820 L390 884
+             L315 841 L269 725 L270 510 Z"
+          fill="#5c7130" stroke-width="6"/>
+
+    <!-- brillo angular -->
+    <path d="M305 437 L370 405 L325 520 L278 585 Z"
+          fill="#d7d9ac" stroke="none"/>
+
+    <!-- reflejo secundario -->
+    <path d="M382 407 L418 395 L392 456 L368 480 Z"
+          fill="#879654" stroke="none"/>
+
+    <!-- faceta inferior -->
+    <path d="M315 841 L390 884 L405 938 L275 875 Z"
+          fill="#26351a" stroke-width="5"/>
+  </g>
+
+  <!-- detalles de desgaste / cortes -->
+  <path d="M245 455 L263 468 M533 430 L550 448 M300 861 L321 872"
+        stroke="#84934c" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- pequeño remache -->
+  <circle cx="284" cy="365" r="8" fill="#17130f"/>
+  <circle cx="496" cy="365" r="8" fill="#17130f"/>
+
+  </g>
+</svg>

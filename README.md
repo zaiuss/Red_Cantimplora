@@ -1,2 +1,56 @@
-# Red_Cantimplora
-Red LoRa custom sobre ESP32 con terminal Android por BT
+# Red Cantimplora
+
+Red de mensajería LoRa mesh/flooding entre nodos ESP32, con una app Android
+(.NET MAUI) que actúa como terminal Bluetooth SPP para hablar con cada nodo.
+
+El repositorio está dividido en dos partes:
+
+- `android/` — aplicación MAUI Android (terminal BT-SPP y chat).
+- `esp32/` — firmware Arduino para el nodo (capa LoRa + BT-SPP).
+
+La documentación interna de desarrollo (estado, decisiones, prompts de
+retomada, bitácora del firmware) vive en `cantimplora_docs/` y **no se sube
+al repo**: solo se conserva en local como material de trabajo.
+
+## Cómo encaja
+
+```
+[móvil Android]  --BT SPP-->  [ESP32 nodo A]  --LoRa broadcast-->  [ESP32 nodo B]  --BT SPP-->  [móvil Android]
+```
+
+- La app Android se conecta por Bluetooth SPP a un ESP32 emparejado.
+- El texto que envías desde la app se empaqueta en una trama binaria y se
+  transmite por LoRa (433 MHz) en broadcast.
+- Cada nodo que la recibe la reenvía (mesh/flooding) salvo que ya la haya
+  visto. Tiene anti-duplicado por `(src, msgId)` y anti-eco.
+- Si el nodo receptor no tiene la app conectada por BT, guarda el mensaje
+  en un buffer circular y lo entrega cuando se reconecta (store-and-forward).
+- No hay ACK, no hay unicast, no hay retransmisiones. La red es best-effort.
+
+Detalles completos del protocolo y del firmware en `esp32/README.md`.
+Detalles de la app en `android/README.md`.
+
+## Hardware
+
+- ESP32-WROOM-32. Las pruebas se han hecho con esta placa. Para otras
+  variantes (S3, C3, WROVER) revisa los pines en
+  `esp32/firmware/config.h`.
+- Módulo LoRa SX1278 433 MHz (SPI, pines en `esp32/firmware/config.h`).
+- Móvil Android con Bluetooth clásico (Android 6.0 / API 21 mínimo).
+- App "Bluetooth SPP" genérica del sistema o similar para pruebas rápidas
+  (la app de este repo es la recomendada).
+
+## Releases
+
+La APK firmada para Android está en la pestaña
+[Releases](https://github.com/Zaiuss/red_cantimplora/releases) del repo.
+Más detalle en [android/README.md](android/README.md#releases).
+
+## Licencia
+
+MIT. Ver [LICENSE](LICENSE).
+
+## Créditos
+
+Si usas o adaptas este proyecto, una mención a Zaiuss en los créditos se
+agradece. No es obligatorio por la licencia.

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cantimplora.Views.ChatBubbleView">
+    <Border Padding="10,6" StrokeThickness="0" BackgroundColor="{StaticResource ChatBubbleBackground}" StrokeShape="RoundRectangle 12">
+        <Border.Triggers>
+            <!-- color de fondo según Kind -->
+            <DataTrigger TargetType="Border" Binding="{Binding Kind}" Value="RX">
+                <Setter Property="BackgroundColor" Value="{StaticResource ChatRx}" />
+            </DataTrigger>
+            <DataTrigger TargetType="Border" Binding="{Binding Kind}" Value="OK">
+                <Setter Property="BackgroundColor" Value="{StaticResource ChatOk}" />
+            </DataTrigger>
+            <DataTrigger TargetType="Border" Binding="{Binding Kind}" Value="ERR">
+                <Setter Property="BackgroundColor" Value="{StaticResource ChatErr}" />
+            </DataTrigger>
+            <DataTrigger TargetType="Border" Binding="{Binding Kind}" Value="TX">
+                <Setter Property="BackgroundColor" Value="{StaticResource ChatTx}" />
+            </DataTrigger>
+        </Border.Triggers>
+        <VerticalStackLayout>
+            <Label Text="{Binding Header}" FontSize="10" TextColor="Gray" HorizontalOptions="Start">
+                <Label.Triggers>
+                    <!-- el header del TX se queda a la izquierda; el trigger es no-op pero se mantiene por simetría con el Label del texto -->
+                    <DataTrigger TargetType="Label" Binding="{Binding Kind}" Value="TX">
+                        <Setter Property="HorizontalOptions" Value="Start" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+            <Label Text="{Binding Text}" FontSize="14" HorizontalOptions="Start" Margin="0,0,12,0">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Kind}" Value="TX">
+                        <Setter Property="HorizontalOptions" Value="End" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+            <Label Text="{Binding Timestamp, StringFormat='{0:HH:mm:ss}'}" FontSize="9" TextColor="Gray" HorizontalOptions="End" />
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cantimplora.Views.StatusOverlay"
+             x:Name="Root">
+    <!-- overlay semitransparente con texto -->
+    <Border IsVisible="{Binding IsVisible, Source={x:Reference Root}}" BackgroundColor="{StaticResource DisconnectOverlay}" StrokeThickness="0" HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Label Text="{Binding Text, Source={x:Reference Root}}" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Border>
+</ContentView>

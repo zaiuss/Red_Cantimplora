@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
+  <title>CANTIMPLORA — tres cantimploras colgadas de un nudo</title>
+  <desc>Logo vectorial de inspiración aventurera pirata de los años 90, con tres cantimploras y el texto CANTIMPLORA.</desc>
+
+  <!-- Fondo transparente -->
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
+    </filter>
+  </defs>
+
+  <!-- TÍTULO -->
+  <g font-family="Georgia, 'Times New Roman', serif" font-weight="900"
+     text-anchor="middle" stroke="#25150e" stroke-width="20"
+     stroke-linejoin="round" paint-order="stroke fill">
+    <text x="600" y="225" font-size="145" fill="#d88918" transform="rotate(-2 600 225)">
+      CANTIMPLORA
+    </text>
+    <text x="600" y="225" font-size="145" fill="none" stroke="#6f3511"
+          stroke-width="7" transform="rotate(-2 600 225)">
+      CANTIMPLORA
+    </text>
+  </g>
+
+  <!-- Pequeños cortes/decoración del lettering -->
+  <path d="M108 190 l45 -25 M1010 188 l55 22" stroke="#f0ad35" stroke-width="8"
+        stroke-linecap="round" opacity=".75"/>
+
+  <!-- NUDO CENTRAL: sin cuerda superior -->
+  <g stroke="#24160f" stroke-width="13" stroke-linejoin="round">
+    <!-- lazo izquierdo -->
+    <path d="M560 330 C525 365 500 405 480 445 C466 473 475 500 500 511
+             L533 487 C518 470 520 450 534 427 L580 367 Z"
+          fill="#9a551e"/>
+    <!-- lazo derecho -->
+    <path d="M640 330 C675 365 700 405 720 445 C734 473 725 500 700 511
+             L667 487 C682 470 680 450 666 427 L620 367 Z"
+          fill="#9a551e"/>
+    <!-- cuerda central -->
+    <path d="M600 360 C595 425 598 492 600 555" fill="none" stroke="#8b4a19"
+          stroke-width="28" stroke-linecap="round"/>
+    <!-- nudo -->
+    <path d="M548 306
+             C563 278 591 270 613 283
+             C640 270 669 289 669 318
+             C682 340 668 365 643 373
+             C625 391 592 385 578 368
+             C548 362 536 335 548 306 Z"
+          fill="#8b4a19"/>
+    <path d="M565 307 L600 286 L626 309 L603 342 L570 332 Z"
+          fill="#b96a25" stroke-width="7"/>
+    <path d="M626 309 L656 299 L661 331 L631 351 L603 342 Z"
+          fill="#6e3513" stroke-width="7"/>
+  </g>
+
+  <!-- RAMAL IZQUIERDO -->
+  <path d="M525 470 C500 495 475 510 452 530" fill="none"
+        stroke="#231b17" stroke-width="24" stroke-linecap="round"/>
+  <path d="M525 470 C500 495 475 510 452 530" fill="none"
+        stroke="#a25a20" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- RAMAL DERECHO -->
+  <path d="M675 470 C700 495 725 510 748 530" fill="none"
+        stroke="#231b17" stroke-width="24" stroke-linecap="round"/>
+  <path d="M675 470 C700 495 725 510 748 530" fill="none"
+        stroke="#a25a20" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- CANTIMPLORA VERDE -->
+  <g stroke="#171717" stroke-width="14" stroke-linejoin="round">
+    <!-- asa -->
+    <path d="M430 490 C390 475 355 500 358 545 C360 578 380 597 407 604
+             L430 578 C411 568 404 551 407 533 C410 514 424 508 443 518 Z"
+          fill="#292b27"/>
+    <!-- cuello -->
+    <path d="M405 545 L468 535 L490 583 L423 600 Z" fill="#52662c"/>
+    <!-- cuerpo -->
+    <path d="M414 578 L481 566
+             L520 622 L526 795
+             L490 910 L412 960 L325 919
+             L290 820 L305 650 Z"
+          fill="#52652d"/>
+    <!-- sombra -->
+    <path d="M305 650 L350 680 L340 855 L412 919 L325 919 L290 820 Z"
+          fill="#303c1f" stroke-width="5"/>
+    <path d="M490 600 L520 622 L526 795 L490 910 L458 878 L474 735 Z"
+          fill="#37451f" stroke-width="5"/>
+    <!-- brillo -->
+    <path d="M365 648 L410 628 L372 710 L337 746 Z"
+          fill="#d5d8b0" stroke="none"/>
+    <!-- tapón -->
+    <path d="M414 527 L476 518 L485 548 L420 558 Z" fill="#262626"/>
+    <path d="M431 522 L444 520 L449 552 L436 554 Z M456 519 L469 518 L474 549 L461 551 Z"
+          fill="#535353" stroke="none"/>
+  </g>
+
+  <!-- CANTIMPLORA AZUL CENTRAL -->
+  <g stroke="#171717" stroke-width="14" stroke-linejoin="round">
+    <!-- asa -->
+    <path d="M563 555 C535 545 515 567 518 604 L525 660 L552 671
+             L570 644 C554 630 550 613 551 594 C552 581 560 576 575 582 Z"
+          fill="#292b27"/>
+    <path d="M637 555 C665 545 685 567 682 604 L675 660 L648 671
+             L630 644 C646 630 650 613 649 594 C648 581 640 576 625 582 Z"
+          fill="#292b27"/>
+    <!-- cuello -->
+    <path d="M555 625 L645 625 L662 677 L538 677 Z" fill="#1f4f99"/>
+    <!-- cuerpo -->
+    <path d="M538 668 L662 668
+             L700 725 L695 950
+             L640 1015 L600 1038
+             L560 1015 L505 950
+             L500 725 Z"
+          fill="#205da8"/>
+    <!-- sombras -->
+    <path d="M500 725 L540 750 L536 935 L575 1005 L560 1015 L505 950 Z"
+          fill="#173d70" stroke-width="5"/>
+    <path d="M662 680 L700 725 L695 950 L640 1015 L622 985 L648 925 L648 760 Z"
+          fill="#173f76" stroke-width="5"/>
+    <!-- brillo -->
+    <path d="M548 724 L582 706 L548 815 L520 850 Z"
+          fill="#b9d0e8" stroke="none"/>
+    <!-- tapón -->
+    <path d="M552 603 L648 603 L655 639 L545 639 Z" fill="#252525"/>
+    <path d="M570 598 L583 598 L585 635 L572 635 Z
+             M600 597 L613 597 L614 635 L601 635 Z
+             M629 598 L642 598 L644 635 L631 635 Z"
+          fill="#555" stroke="none"/>
+  </g>
+
+  <!-- CANTIMPLORA ROJA -->
+  <g stroke="#171717" stroke-width="14" stroke-linejoin="round">
+    <!-- asa -->
+    <path d="M770 490 C810 475 845 500 842 545 C840 578 820 597 793 604
+             L770 578 C789 568 796 551 793 533 C790 514 776 508 757 518 Z"
+          fill="#292b27"/>
+    <!-- cuello -->
+    <path d="M795 545 L732 535 L710 583 L777 600 Z" fill="#b62b25"/>
+    <!-- cuerpo -->
+    <path d="M786 578 L719 566
+             L680 622 L674 795
+             L710 910 L788 960 L875 919
+             L910 820 L895 650 Z"
+          fill="#b52a25"/>
+    <!-- sombra -->
+    <path d="M895 650 L850 680 L860 855 L788 919 L875 919 L910 820 Z"
+          fill="#721e1d" stroke-width="5"/>
+    <path d="M710 600 L680 622 L674 795 L710 910 L742 878 L726 735 Z"
+          fill="#8a201f" stroke-width="5"/>
+    <!-- brillo -->
+    <path d="M835 648 L790 628 L828 710 L863 746 Z"
+          fill="#f1b19a" stroke="none"/>
+    <!-- tapón -->
+    <path d="M786 527 L724 518 L715 548 L780 558 Z" fill="#262626"/>
+    <path d="M769 522 L756 520 L751 552 L764 554 Z M744 519 L731 518 L726 549 L739 551 Z"
+          fill="#535353" stroke="none"/>
+  </g>
+
+  <!-- pequeños detalles de cuerda -->
+  <path d="M481 530 L452 548 M719 530 L748 548"
+        stroke="#d08a39" stroke-width="5" stroke-linecap="round"/>
+</svg>

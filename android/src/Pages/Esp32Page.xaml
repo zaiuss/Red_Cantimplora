@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Cantimplora.ViewModels"
+             xmlns:views="clr-namespace:Cantimplora.Views"
+             x:Class="Cantimplora.Pages.Esp32Page"
+             x:DataType="vm:Esp32ViewModel"
+             Shell.NavBarIsVisible="False"
+             Title="BT Connect">
+
+    <Grid>
+        <!-- filas: header / body / composer -->
+        <Grid RowDefinitions="Auto,*,Auto" Padding="24" RowSpacing="12">
+            <!-- header: menú / datos del dispositivo / refrescar -->
+            <Border Stroke="{StaticResource PrimaryBorder}" StrokeThickness="1" StrokeShape="Rectangle" Padding="0" >
+                <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
+                    <!-- ⋮ abre action sheet (ESP32 Config / Clear DB) -->
+                    <Button Grid.Column="0" x:Name="MenuButton" Text="⋮" FontSize="30" BackgroundColor="Transparent" TextColor="{StaticResource DarkBorder}" Padding="0,0" Clicked="OnMenuClicked" SemanticProperties.Description="Menú" />
+                    <views:ActiveLinkView x:Name="Link" Grid.Column="1" IsVisible="{Binding IsConnected}" />
+                    <views:InactiveLinkView x:Name="InactiveLink" Grid.Column="1" IsVisible="{Binding IsNotConnected}" />
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1">
+                <!-- body: chat (conectado) o lista de emparejados (desconectado) -->
+                <CollectionView x:Name="ChatCollectionView" IsVisible="{Binding IsConnected}" ItemsSource="{Binding Messages}" ItemsUpdatingScrollMode="KeepLastItemInView">
+                    <CollectionView.ItemTemplate>
+                        <!-- item del chat: una burbuja por mensaje -->
+                        <DataTemplate x:DataType="vm:ChatMessage">
+                            <Grid Padding="4">
+                                <views:ChatBubbleView BindingContext="{Binding}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <views:Esp32DeviceListView x:Name="DeviceList" IsVisible="{Binding IsNotConnected}" />
+            </Grid>
+
+            <views:Esp32ComposerView x:Name="Composer" Grid.Row="2" IsVisible="{Binding IsConnected}" />
+
+        </Grid>
+
+        <views:StatusOverlay x:Name="DisconnectOverlay" Text="Desconectando..." />
+        <views:StatusOverlay x:Name="RefreshingOverlay" Text="Buscando dispositivos..." />
+    </Grid>
+
+</ContentPage>

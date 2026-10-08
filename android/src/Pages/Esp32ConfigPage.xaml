@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Cantimplora.ViewModels"
+             x:Class="Cantimplora.Pages.Esp32ConfigPage"
+             x:DataType="vm:Esp32ViewModel"
+             Title="ESP32 Config">
+
+    <VerticalStackLayout Padding="24" Spacing="16">
+
+        <Label Text="Esp32 LoRa"
+               FontSize="18"
+               FontAttributes="Bold" />
+
+        <Grid ColumnDefinitions="Auto,Auto,*" ColumnSpacing="8" VerticalOptions="Center">
+            <Label Grid.Column="0" Text="/tx:" VerticalOptions="Center" />
+            <Entry Grid.Column="1"
+                   x:Name="TxEntry"
+                   Text="{Binding TxRepeat}"
+                   Keyboard="Numeric"
+                   WidthRequest="80"
+                   Unfocused="OnTxUnfocused"
+                   VerticalOptions="Center" />
+            <Label Grid.Column="2" Text="- Repeticiones por mensaje" VerticalOptions="Center" />
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto,Auto,*" ColumnSpacing="8" VerticalOptions="Center">
+            <Label Grid.Column="0" Text="/gap" VerticalOptions="Center" />
+            <Entry Grid.Column="1"
+                   x:Name="GapEntry"
+                   Text="{Binding GapMs}"
+                   Keyboard="Numeric"
+                   WidthRequest="80"
+                   Unfocused="OnGapUnfocused"
+                   VerticalOptions="Center" />
+            <Label Grid.Column="2" Text="ms. - Tiempo entre repeticiones (Max. 60000)" VerticalOptions="Center" />
+        </Grid>
+
+        <BoxView HeightRequest="1" BackgroundColor="{StaticResource Separator}" />
+
+        <Label Text="Debug"
+               FontSize="18"
+               FontAttributes="Bold" />
+
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" VerticalOptions="Center">
+            <CheckBox Grid.Column="0"
+                      IsChecked="{Binding ShowSystemMessages}"
+                      VerticalOptions="Center" />
+            <Label Grid.Column="1"
+                   Text="Debug en chat"
+                   FontSize="16"
+                   VerticalOptions="Center" />
+        </Grid>
+
+    </VerticalStackLayout>
+
+</ContentPage>

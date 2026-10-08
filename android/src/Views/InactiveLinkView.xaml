@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cantimplora.Views.InactiveLinkView"
+             x:Name="Root">
+    
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <!-- estado sin conexión: etiqueta a la izquierda, botón refrescar a la derecha -->
+            <Label Grid.Column="0" Text="Desconectado" FontSize="20" TextColor="{StaticResource DarkBorder}" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Button Grid.Column="1" Text="⟳" FontSize="36" BackgroundColor="Transparent" TextColor="{StaticResource DarkBorder}" Command="{Binding RefreshCommand, Source={x:Reference Root}}" 
+                    Margin="0,-6,12,0" HorizontalOptions="End" SemanticProperties.Description="Refrescar lista de emparejados" />
+        </Grid>
+    
+</ContentView>
