@@ -39,11 +39,11 @@ Detalles de la app en `android/README.md`.
 - App "Bluetooth SPP" genérica del sistema o similar para pruebas rápidas
   (la app de este repo es la recomendada).
 
-## Licencia
+## Créditos
 
 MIT. Ver [LICENSE](LICENSE).
 
-## Créditos
-
 LLM Minimax utilizado en el desarrollo (pa'lo bueno y pa'lo malo).
 Si usas o adaptas este proyecto, una mención a Zaiuss en los créditos se agradece.
+
+
