@@ -8,11 +8,12 @@ El repositorio está dividido en dos partes:
 - `android/` — aplicación MAUI Android (terminal BT-SPP y chat).
 - `esp32/` — firmware Arduino para el nodo (capa LoRa + BT-SPP).
 
-La documentación interna de desarrollo (estado, decisiones, prompts de
-retomada, bitácora del firmware) vive en `cantimplora_docs/` y **no se sube
-al repo**: solo se conserva en local como material de trabajo.
-
 ## ¿Para qué sirve esto?
+
+Red de nodos ESP32 que se comunican entre sí por radio LoRa. La app
+Android es el terminal que el usuario usa para enviar y recibir
+mensajes de texto a través del nodo al que esté enlazada por
+Bluetooth, y que el ESP32 propaga al resto de la red.
 
 ```
 [móvil Android]  --BT SPP-->  [ESP32 nodo A]  --LoRa broadcast-->  [ESP32 nodo B]  --BT SPP-->  [móvil Android]
@@ -45,5 +46,3 @@ MIT. Ver [LICENSE](LICENSE).
 
 LLM Minimax utilizado en el desarrollo (pa'lo bueno y pa'lo malo).
 Si usas o adaptas este proyecto, una mención a Zaiuss en los créditos se agradece.
-
-

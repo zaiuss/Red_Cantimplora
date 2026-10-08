@@ -37,11 +37,10 @@ Definidos en `firmware/config.h`:
 SPI se inicializa con `SPI.begin(18, 5, 19, 23)` por los pines soldados.
 Frecuencia 433 MHz, TX power 17 dBm, SF7 / BW125 kHz por defecto.
 
-## Hardware probado
+## Hardware
 
-Las pruebas se han hecho sobre un **ESP32-WROOM-32**. No se ha probado
-con S3, C3, WROVER ni otros. Si pruebas con otra variante, documenta
-los pines y el resultado en un issue o en el changelog.
+Las pruebas se han hecho sobre un **ESP32-WROOM-32** y un módulo LoRa
+**SX1278 433 MHz** conectado por SPI.
 
 ## Cómo flashear
 
@@ -56,7 +55,7 @@ los pines y el resultado en un issue o en el changelog.
 Tras el boot debería verse por Serial (115200):
 
 ```
-[BOOT] NODE_HEX=01 selfAddr=01
+[BOOT] NODE_HEX=XX selfAddr=01
 [BOOT] BT=OK name=BT-POC
 [BOOT] LoRa=OK sf=7 bw=125000 txp=17
 ```
@@ -119,40 +118,6 @@ está llena, se olvida el más antiguo.
 
 El nodo relay reenvía con `src = src_original` y `seq = txSeq++` local. El
 id único del mensaje en toda la red es siempre `(src_original, msgId_original)`.
-
-## Comandos BT
-
-| Comando   | Respuesta por BT |
-|-----------|------------------|
-| `/help`   | ayuda con la lista + nota sobre mesh |
-| `/id`     | `OK id=XX` |
-| `/stat`   | `OK id=XX seq=N mesh=ON buf=N/32 bt=ON tx=A/Bms` |
-| `/tx [N]` | `OK tx=A` (1..10) |
-| `/gap [ms]`| `OK gap=Bms` (0..60000) |
-
-Texto que no empieza por `/` se envía como mensaje LoRa broadcast. Si pasa
-de 198 bytes, `ERR linea demasiado larga`. Las líneas vacías se ignoran
-sin error.
-
-## Fuera de alcance
-
-- ACK, retransmisiones, unicast (la red es best-effort).
-- Persistencia del buffer de mensajes pendientes (en RAM; se pierde al
-  reiniciar).
-- Persistencia de `NODE_HEX` (es por build).
-- Saltos/TTL máximo. Depende solo de la caché circular.
-- BLE GATT, OLED, LoRaWAN.
-
-## Logs: qué leer
-
-| Evento | Significado |
-|--------|-------------|
-| `[TX] type=DATA dst=* msgId=N seq=M len=… ok=1` | TX LoRa broadcast (este nodo originó o reenvió). |
-| `[RX] src=XX msgId=N type=DATA seq=M len=… payload="…"` | RX DATA aceptado de otro nodo. |
-| `[RX] eco descartado` | vino de `src==self`. |
-| `[RX] duplicado descartado` | `(src,msgId)` ya estaba. |
-| `[RX] parse=FAIL len=…` | magic/version/CRC/longitud inválidos. |
-| `[RX] payload corto` | DATA con menos de 2 bytes de payload. |
 
 ## Changelog
 
