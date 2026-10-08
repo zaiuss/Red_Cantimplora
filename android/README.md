@@ -5,7 +5,7 @@ terminal Bluetooth SPP para hablar con un nodo ESP32 de la red Cantimplora.
 Lista los dispositivos emparejados, se conecta al que elijas, y muestra
 un chat con los mensajes LoRa entrantes y salientes.
 
-## Qué hace
+## Qué cosas hace
 
 - Lista los dispositivos Bluetooth emparejados del sistema.
 - Conecta al ESP32 seleccionado por MAC usando el perfil SPP
@@ -177,6 +177,8 @@ Si quieres tocar el código o compilar tú mismo, sigue en
 
 ## Cómo compilar
 
+Con Visual Studio y .Net 9.0 MAUI instalado
+
 ### Debug
 
 ```bash
@@ -191,10 +193,7 @@ APK en `bin/Debug/net9.0-android/`.
 dotnet publish Cantimplora.csproj -f net9.0-android -c Release
 ```
 
-APK firmada en `bin/Release/net9.0-android/com.ojetedevs.cantimplora-Signed.apk`
-y en `bin/Release/net9.0-android/publish/`.
-
-## Cómo instalar
+## Cómo instalar APK
 
 1. Copia la APK al móvil.
 2. En el móvil: Configuración -> Seguridad -> activa "Orígenes
@@ -240,30 +239,6 @@ Centralizados en `Resources/Styles/Colors.xaml`:
 
 El color de marca de la app es `#F26B3A` (icono y splash), con fondo
 trigo `#F5DEB3` en el icono y morado en el splash.
-
-## Pendientes / ideas
-
-- **Credenciales del keystore**: están en el `.csproj` en plano. Mover a
-  variables de entorno o `keytool` directo.
-- **Tests**: no hay. Candidatos claros: `Esp32LineParser.ParseLine`,
-  `Esp32StatParser.TryParseStatLine`, `ChatFilter.ShouldBeVisible`,
-  buffer y `RebuildMessages`.
-- **ClearAll no borra Settings**: `MessageStore.ClearAllAsync` solo borra
-  `Messages`. Si se quiere un reset completo, también `Settings`.
-- **Versión dinámica**: `ApplicationDisplayVersion` y `ApplicationVersion`
-  hardcoded a `1.2` y `2`. Automatizar para builds incrementales.
-- **Migración de BD**: si cambia el esquema de `Messages` o `Settings`,
-  hay que añadir migración. `sqlite-net-pcl` lo soporta.
-- **iOS / Windows**: el proyecto está preparado solo para Android. Para
-  añadir otros targets, reintroducir `#if ANDROID` o `partial class`.
-- **Limpiar el repo de sobrantes**: `MainPage.xaml/.cs`, `ConfigPage`,
-  `MessagesPage` son placeholders del template MAUI sin uso.
-- **Filtros adicionales**: por nodo, por rango de tiempo, búsqueda de
-  texto.
-- **Exportar logs a fichero**: chat a `.txt` o `.csv` para debug.
-- **Vista de "logs del sistema"**: una página aparte con los `OK`/`ERR`
-  filtrados, accesible aunque debug esté desactivado.
-- **Timeout de `/stat` configurable**: hardcoded a 5s en el VM.
 
 ## Changelog
 

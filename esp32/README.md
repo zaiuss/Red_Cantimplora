@@ -5,7 +5,7 @@ entre Bluetooth SPP y una red LoRa en mesh/flooding. Pensado para correr
 en Arduino IDE 2.x con la librería **Sandeep Mistry LoRa 0.8.0** y Core
 ESP32 3.x.
 
-## Qué hace
+## Qué cosas hace
 
 - Empareja como `BT-POC` por Bluetooth SPP (sin PIN).
 - Cada línea de texto recibida por BT se envía como broadcast por LoRa con

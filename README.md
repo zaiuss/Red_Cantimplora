@@ -12,7 +12,7 @@ La documentación interna de desarrollo (estado, decisiones, prompts de
 retomada, bitácora del firmware) vive en `cantimplora_docs/` y **no se sube
 al repo**: solo se conserva en local como material de trabajo.
 
-## Cómo encaja
+## ¿Para qué sirve esto?
 
 ```
 [móvil Android]  --BT SPP-->  [ESP32 nodo A]  --LoRa broadcast-->  [ESP32 nodo B]  --BT SPP-->  [móvil Android]
@@ -30,21 +30,14 @@ al repo**: solo se conserva en local como material de trabajo.
 Detalles completos del protocolo y del firmware en `esp32/README.md`.
 Detalles de la app en `android/README.md`.
 
-## Hardware
+## Hardware necesario
 
 - ESP32-WROOM-32. Las pruebas se han hecho con esta placa. Para otras
-  variantes (S3, C3, WROVER) revisa los pines en
-  `esp32/firmware/config.h`.
+  variantes (S3, C3, WROVER) revisa los pines en  `esp32/firmware/config.h`.
 - Módulo LoRa SX1278 433 MHz (SPI, pines en `esp32/firmware/config.h`).
 - Móvil Android con Bluetooth clásico (Android 6.0 / API 21 mínimo).
 - App "Bluetooth SPP" genérica del sistema o similar para pruebas rápidas
   (la app de este repo es la recomendada).
-
-## Releases
-
-La APK firmada para Android está en la pestaña
-[Releases](https://github.com/Zaiuss/red_cantimplora/releases) del repo.
-Más detalle en [android/README.md](android/README.md#releases).
 
 ## Licencia
 
@@ -52,5 +45,5 @@ MIT. Ver [LICENSE](LICENSE).
 
 ## Créditos
 
-Si usas o adaptas este proyecto, una mención a Zaiuss en los créditos se
-agradece. No es obligatorio por la licencia.
+LLM Minimax utilizado en el desarrollo (pa'lo bueno y pa'lo malo).
+Si usas o adaptas este proyecto, una mención a Zaiuss en los créditos se agradece.
